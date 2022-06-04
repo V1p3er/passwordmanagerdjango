@@ -17,7 +17,8 @@
   <body>
     <div class="main">
       <div class="container a-container" id="a-container">
-        <form class="form" id="a-form" method="" action="">
+        <form class="form" id="a-form" method="POST" action="">
+          {% csrf_token %}
           <h2 class="form_title title">Create Account</h2>
 		  <span class="form__span">or use email for registration</span>
           <input class="form__input" type="text" placeholder="Name">
