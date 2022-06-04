@@ -26,10 +26,10 @@ body {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
-    min-height: 120vh;
+    min-height: 100vh;
     position: relative;
     overflow: hidden;
-    padding-top: 30em;
+    padding-top: 40%;
     text-align: center;
 }
 .signature a{
@@ -74,6 +74,9 @@ body {
     display: block;
     clear: both;
   }
+  body{
+    padding-top: 30%;
+  }
 }
 @media (min-width: 992px) {
   .container {
@@ -85,6 +88,9 @@ body {
     content: " ";
     display: block;
     clear: both;
+  }
+  body{
+    padding-top: 20%;
   }
 }
 @media (min-width: 1200px) {
