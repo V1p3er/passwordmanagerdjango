@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 
-def signup_login(request):
-	return render (request=request, template_name="users/users.html")
+def signup_login(response):
+	return render(response, 'users/users.html')
+	
