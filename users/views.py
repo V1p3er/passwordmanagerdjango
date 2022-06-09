@@ -8,10 +8,10 @@ from .forms import CreateUserForm
 def signup(request):
     form = CreateUserForm()
     if request.method == 'POST':
-        form = CreateUserForm()(request.POST)
+        form = CreateUserForm()
         if form.is_valid():
             form.save()
-    return render(request, template_name=('users/signup.html'))
+    return render(request, template_name=('users/signup.html', {'form': form}))
 
 def login(request):
     form = CreateUserForm()
