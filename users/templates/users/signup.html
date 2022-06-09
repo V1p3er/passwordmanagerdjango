@@ -23,31 +23,31 @@
               <form method="POST" action="">
                 {% csrf_token %}
                 <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="floatingInputUsername" placeholder="myusername" required autofocusz>
+                  <input type="text" class="form-control" id="floatingInputUsername" placeholder="myusername" required autofocusz name="username">
                   <label for="floatingInputUsername">Username</label>
                 </div>
   
                 <div class="form-floating mb-3">
-                  <input type="email" class="form-control" id="floatingInputEmail" placeholder="name@example.com">
+                  <input type="email" class="form-control" id="floatingInputEmail" placeholder="name@example.com" name="email">
                   <label for="floatingInputEmail">Email address</label>
                 </div>
   
                 <hr>
   
                 <div class="form-floating mb-3">
-                  <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                  <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password1">
                   <label for="floatingPassword">Password</label>
                 </div>
   
                 <div class="form-floating mb-3">
-                  <input type="password" class="form-control" id="floatingPasswordConfirm" placeholder="Confirm Password">
+                  <input type="password" class="form-control" id="floatingPasswordConfirm" placeholder="Confirm Password" name="password2">
                   <label for="floatingPasswordConfirm">Confirm Password</label>
                 </div>
   
                 <div class="d-grid mb-2">
                   <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit">Register</button>
                 </div>
-  
+                {{form.errors}}
                 <a class="d-block text-center mt-2 small" href="{% url 'login' %}">Have an account? Sign In</a>
   
                 <hr class="my-4">
