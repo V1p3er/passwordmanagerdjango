@@ -7,13 +7,14 @@ from django.contrib import messages
 
 
 def signup(request):
-    form = CreateUserForm()
     if request.method == 'POST':
-        form = CreateUserForm()
+        form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, 'Account created successfully!')
             return(redirect('login'))
+    else:
+        form = CreateUserForm()
     return render(request, template_name=('users/signup.html'), context={'form': form})
 
 def login(request):
