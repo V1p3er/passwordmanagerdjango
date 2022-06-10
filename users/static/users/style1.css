@@ -1,25 +1,31 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
 * {
   box-sizing: border-box;
-  padding-left: 0;
-  padding-right: 0;
-  margin-left: 0;
-  margin-right: 0;
+  padding-left: 0%;
+  padding-right: 0%;
+  margin-left: 0%;
+  margin-right: 0%;
 }
-p {
-  color: rgb(0, 0, 0);
+p{
+    color: white;
 }
 body {
-  padding: 50px;
-  font-family: "Open Sans", sans-serif;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: rgb(0, 0, 0);
-  font-weight: 100;
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-size-adjust: 100%;
+    padding: 50px;
+    background-color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: rgb(255, 255, 255);
+    font-weight: 100; 
+}
+.signature a{
+    color: white;
+}
+.signature a:hover{
+    color: rgba(224, 222, 222, 0.726);
 }
 .container {
-  padding: 0 15px 0 15px;
+  padding: 0px 15px 0px 15px;
 }
 @media (min-width: 0) {
   .container {
@@ -54,7 +60,7 @@ body {
     display: block;
     clear: both;
   }
-  body {
+  body{
     padding-top: 30%;
   }
 }
@@ -69,7 +75,7 @@ body {
     display: block;
     clear: both;
   }
-  body {
+  body{
     padding-top: 20%;
   }
 }
@@ -85,32 +91,33 @@ body {
     clear: both;
   }
 }
-a {
+
+.nav-link {
   text-decoration: none;
   color: rgba(34, 34, 34, 0.8);
 }
-a :focus,
-a:hover {
-  color: #000;
+.nav-link:hover, .nav-link :focus {
+  color: black;
 }
+
 .menu-left a {
   display: inline-block;
   position: relative;
-  padding-bottom: 0;
-  transition: color 0.35s ease;
+  padding-bottom: 0px;
+  transition: color .35s ease;
 }
 .menu-left a:before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   left: 0;
   bottom: 0;
   height: 2px;
   width: 0;
-  transition: width 0s ease, background 0.35s ease;
+  transition: width 0s ease, background .35s ease;
 }
 .menu-left a:after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   right: 0;
@@ -118,24 +125,25 @@ a:hover {
   height: 2px;
   width: 0;
   background: #000;
-  transition: width 0.35s ease;
+  transition: width .35s ease;
 }
 .menu-left a:hover:before {
   width: 100%;
   background: #000;
-  transition: width 0.35s ease;
+  transition: width .35s ease;
 }
 .menu-left a:hover:after {
   width: 100%;
-  background: 0 0;
+  background: transparent;
   transition: all 0s ease;
 }
+
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 0.5rem 0;
+  padding: .5rem 0;
   background: rgba(255, 255, 255, 0.92);
   z-index: 3;
   will-change: transform;
@@ -147,16 +155,16 @@ header {
 }
 header nav .logo {
   float: left;
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
+  padding-top: .25rem;
+  padding-bottom: .25rem;
   margin-right: 1rem;
   font-size: 1.25rem;
   line-height: inherit;
   font-weight: 500;
-  color: #000;
+  color: black;
 }
 header nav .logo:after {
-  content: "";
+  content: '';
   display: table;
   clear: both;
 }
@@ -181,17 +189,23 @@ header nav ul li a {
 @media (min-width: 576px) {
   header nav ul li a {
     display: block;
-    padding: 0.425rem 0;
+    padding: .425rem 0rem;
   }
 }
+
 @media (max-width: 768px) {
   ul {
     clear: both;
   }
   ul li {
-    padding: 0.5em 0;
+    padding: .5em 0;
   }
 }
+.hide-nav {
+  transform: translateY(-120%) !important;
+  -webkit-transform: translateY(-120%) !important;
+}
+
 ul.menu-left {
   display: block;
   max-height: 0;
@@ -211,10 +225,14 @@ ul.menu-left {
   }
 }
 ul.menu-left:before {
-  content: "";
+  content: '';
   display: table;
   clear: both;
 }
+ul.menu-left.collapse {
+  max-height: 15em !important;
+}
+
 .nav-toggle {
   display: block;
   border-radius: 5px;
@@ -224,6 +242,16 @@ ul.menu-left:before {
   width: 38px;
   cursor: pointer;
   padding: 8px 8px;
+}
+.nav-toggle.open span:first-child {
+  transform: rotate(45deg) translate(4.4px, 4.4px);
+}
+.nav-toggle.open span:nth-child(2) {
+  width: 0%;
+  opacity: 0;
+}
+.nav-toggle.open span:last-child {
+  transform: rotate(-45deg) translate(4.4px, -4.4px);
 }
 @media (min-width: 768px) {
   .nav-toggle {
@@ -237,28 +265,5 @@ ul.menu-left:before {
   width: 100%;
   margin-top: 4px;
   background-color: #000;
-  transition: all 0.25s;
-}
-#login-message{
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-.notlog{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-}
-.btnlogin:link, .btnlogin:visited {
-  background-color: #007bff;
-  color: white;
-  padding: 14px 25px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-}
-
-.btnlogin:hover, .btnlogin:active {
-  background-color: #007bff;
+  transition: all .25s;
 }

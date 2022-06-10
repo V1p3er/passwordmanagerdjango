@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="{% static 'users/style1.css' %}">
     <link rel="stylesheet" href="{% static 'users/style.css' %}"> 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -12,6 +13,41 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </head>
   <body>
+    {% if user.is_authenticated %}
+    <header>
+      <div class="container">
+        <nav id="navigation">
+          <a href="/" class="logo">Pershdev-PassM</a>
+          <a aria-label="mobile menu" class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+            <ul class="menu-left">
+              <li class="nav-item"><a class="nav-link" href="/dashboard">Welcome {{user}}</a></li>
+              <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+      </div>
+    </header>
+    {% else %}
+    <header>
+      <div class="container">
+        <nav id="navigation">
+          <a href="/" class="logo">Pershdev-PassM</a>
+          <a aria-label="mobile menu" class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+            <ul class="menu-left">
+              <li><a href="{% url 'login' %}" class="nav-link">Login</a></li>
+              <li><a href="{% url 'signup' %}" class="nav-link">Sign up</a></li>
+            </ul>
+        </nav>
+      </div>
+    </header>
+    {% endif %}
     <div class="container">
       <div class="row">
         <div class="col-lg-10 col-xl-9 mx-auto">
