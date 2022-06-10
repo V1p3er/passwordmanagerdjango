@@ -11,22 +11,42 @@
     <title>Pershdev-PassM</title>
 </head>
 <body>
-    <header>
-        <div class="container">
-          <nav id="navigation">
-            <a href="/" class="logo">Pershdev-PassM</a>
-            <a aria-label="mobile menu" class="nav-toggle">
-              <span></span>
-              <span></span>
-              <span></span>
-            </a>
-              <ul class="menu-left">
-                <li><a href="{% url 'login' %}">Login</a></li>
-                <li><a href="{% url 'signup' %}">Sign up</a></li>
-              </ul>
-          </nav>
-        </div>
-      </header>
+  {% if user.is_authenticated %}
+  <header>
+    <div class="container">
+      <nav id="navigation">
+        <a href="/" class="logo">Pershdev-PassM</a>
+        <a aria-label="mobile menu" class="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </a>
+          <ul class="menu-left">
+            <li class="nav-item"><a class="nav-link" href="/dashboard">Welcome {{user}}</a></li>
+            <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+          </ul>
+      </nav>
+    </div>
+  </header>
+  {% else %}
+  <header>
+    <div class="container">
+      <nav id="navigation">
+        <a href="/" class="logo">Pershdev-PassM</a>
+        <a aria-label="mobile menu" class="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </a>
+          <ul class="menu-left">
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'signup' %}">Sign up</a></li>
+          </ul>
+      </nav>
+    </div>
+  </header>
+  {% endif %}
+
     <section id="about" class="main">
         <div class="container">
         <h1>Opensource password Mangaer</h1>

@@ -244,3 +244,21 @@ ul.menu-left:before {
   justify-content: center;
   text-align: center;
 }
+.notlog{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+a:link, a:visited {
+  background-color: #007bff;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: #007bff;
+}

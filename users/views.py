@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .forms import CreateUserForm
@@ -36,3 +36,7 @@ def login_v(request):
 
 def dashboard(request):
     return render(request, template_name=('users/dashboard.html'))
+def logout_v(request):
+    logout(request)
+    messages.info(request, "You have successfully logged out.")
+    return redirect('login')
