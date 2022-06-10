@@ -1,13 +1,39 @@
+{% load static %}
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  {% for message in  messages %}
-  <p>{{message}}</p>
-  {% endfor %}
-</body>
-</html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'users/dashboard.css' %}">
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav id="navigation">
+          <a href="/" class="logo">Pershdev-PassM</a>
+          <a aria-label="mobile menu" class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+            <ul class="menu-left">
+              <li><a href="{% url 'login' %}">Login</a></li>
+              <li><a href="{% url 'signup' %}">Sign up</a></li>
+            </ul>
+        </nav>
+      </div>
+    </header>
+    {% for message in  messages %}
+      <p id="login-message">{{message}}</p>
+    {% endfor %}
+    <script>
+      var message_ele = document.getElementById("login-message");
+
+      setTimeout(function(){ 
+        message_ele.style.display = "none"; 
+      }, 3000);
+      // Timeout is 3 sec, you can change it   // 2000 millisecond
+    </script>
+  </body>
+</html> 

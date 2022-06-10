@@ -22,13 +22,16 @@ def login_v(request):
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
-        if user.is_authenticated:
-            login(request, user)
-            messages.success(request, 'Logged in successfully!')
-            return redirect('dashboard')
+        if user is not None:
+            if user.is_authenticated:
+                login(request, user)
+                messages.success(request, 'Logged in successfully!')
+                return redirect('dashboard')
+            else:
+                login(request, user)
+                messages.error(request, 'Invalid username or password')
         else:
             messages.error(request, 'Invalid username or password')
-            return redirect('login/')
     return render(request, template_name=('users/login.html'))
 
 def dashboard(request):
