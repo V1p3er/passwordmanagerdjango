@@ -40,3 +40,5 @@ def logout_v(request):
     logout(request)
     messages.info(request, "You have successfully logged out.")
     return redirect('login')
+def vault(request):
+    return render(request, template_name=('users/vault.html'))
