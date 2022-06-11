@@ -27,6 +27,17 @@
         </nav>
       </div>
     </header>
+    {% for message in  messages %}
+      <p id="login-message">{{message}}</p>
+    {% endfor %}
+    <script>
+      var message_ele = document.getElementById("login-message");
+
+      setTimeout(function(){ 
+        message_ele.style.display = "none"; 
+      }, 3000);
+      // Timeout is 3 sec, you can change it   // 2000 millisecond
+    </script>
   </body>
   {% else %}
   <div class="notlog">
